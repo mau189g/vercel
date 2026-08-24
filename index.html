@@ -17,7 +17,7 @@
             letter-spacing: -0.5px;
         }
         .hero-section {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
             border-bottom: 1px solid #30363d;
         }
@@ -43,189 +43,226 @@
             background-color: #2ea043;
             color: #ffffff;
         }
-        section {
-            padding: 4rem 0;
-            border-bottom: 1px solid #30363d;
+        /* Clases para controlar la vista dinámica de las pestañas */
+        .content-view {
+            display: none;
+            padding: 3rem 0;
+        }
+        .content-view.active {
+            display: block;
+        }
+        .nav-link {
+            cursor: pointer;
+            color: #8b949e !important;
+            transition: color 0.2s;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #58a6ff !important;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar / Logo -->
+    <!-- Navbar Superior con Pestañas de Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
         <div class="container">
-            <a class="navbar-brand text-white" href="#">
-                <!-- Inserta tu logo corporativo aquí si lo deseas -->
+            <a class="navbar-brand text-white" href="#" onclick="switchTab('inicio', event)">
                 ⚡ RAPID<span class="text-accent">LEAD</span>
             </a>
-            <div class="ms-auto">
-                <a href="#contacto" class="btn btn-sm btn-accent">Contacto Directo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center gap-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" onclick="switchTab('inicio', event)">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="switchTab('productos', event)">Sistemas y Precios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="switchTab('demos', event)">Demos y Carrusel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="switchTab('contacto', event)">Mensajería Directa</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-section text-center text-md-start">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold text-white mb-3">Ingeniería y Automatización sin Burocracia</h1>
-                    <p class="lead text-secondary mb-4">
-                        Ayudamos a fundadores, startups y empresas tradicionales a lanzar MVPs funcionales, automatizados y validados en el mercado en tiempo récord (72 horas). Sin rodeos ni agencias tradicionales: código real, funcionando.
-                    </p>
-                    <a href="#productos" class="btn btn-accent btn-lg">Ver Sistemas y Precios</a>
+    <!-- CONTENEDOR CENTRAL DINÁMICO (Se recarga al hacer clic arriba sin refrescar la página) -->
+    <main class="container my-4">
+
+        <!-- VISTA 1: INICIO -->
+        <div id="view-inicio" class="content-view active">
+            <header class="hero-section text-center text-md-start rounded p-5 mb-4 bg-dark border border-secondary">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 fw-bold text-white mb-3">Ingeniería y Automatización sin Burocracia</h1>
+                        <p class="lead text-secondary mb-4">
+                            Ayudamos a fundadores, startups y empresas tradicionales a lanzar MVPs funcionales, automatizados y validados en tiempo récord (72 horas). Sin rodeos ni agencias tradicionales: código real, funcionando.
+                        </p>
+                        <button class="btn btn-accent btn-lg" onclick="switchTab('productos', event)">Ver Sistemas y Precios</button>
+                    </div>
                 </div>
+            </header>
+
+            <div class="p-4 bg-dark border border-secondary rounded">
+                <h2 class="h3 fw-bold text-white mb-3">El verdadero cuello de botella de tu negocio</h2>
+                <p class="fs-5 text-secondary">
+                    La mayoría de las startups y empresas tradicionales pierden entre tres y seis meses —y miles de dólares— esperando que una agencia tradicional mueva un dedo para validar una idea que se podía probar en días.
+                </p>
+                <p class="fs-5 text-secondary mb-0">
+                    Nosotros no vendemos horas de consultoría ni reuniones innecesarias. Construimos el núcleo que necesitas para dejar de perder leads y poner software real a funcionar en tiempo récord.
+                </p>
             </div>
         </div>
-    </header>
 
-    <!-- El Verdadero Cuello de Botella -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h2 class="h3 fw-bold text-white mb-4">El verdadero cuello de botella de tu negocio</h2>
-                    <p class="fs-5 text-secondary">
-                        La mayoría de las startups y empresas tradicionales pierden entre tres y seis meses —y miles de dólares— esperando que una agencia tradicional mueva un dedo para validar una idea que se podía probar en días.
-                    </p>
-                    <p class="fs-5 text-secondary mb-0">
-                        Nosotros no vendemos horas de consultoría ni reuniones innecesarias. Construimos el núcleo que necesitas para dejar de perder leads, validar tu producto con usuarios reales y poner software real a funcionar en tiempo récord. Sin intermediarios y con plazos fijos.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Productos Empaquetados -->
-    <section id="productos">
-        <div class="container">
+        <!-- VISTA 2: PRODUCTOS Y PRECIOS -->
+        <div id="view-productos" class="content-view">
             <div class="text-center mb-5">
                 <h2 class="fw-bold text-white">Nuestros Sistemas y Productos Empaquetados</h2>
                 <p class="text-secondary">Precios claros y fijos para cerrar ventas directas sin fricción.</p>
             </div>
 
             <div class="row g-4">
-                <!-- Producto 1 -->
                 <div class="col-md-6">
                     <div class="card card-custom h-100 p-4">
                         <h3 class="h5 fw-bold text-white">1. Oferta Ancla — "Prototipo Vivo"</h3>
                         <p class="text-accent small">MVP funcional en 72 horas</p>
                         <ul class="list-unstyled text-secondary mb-3">
-                            <li class="mb-2"><strong>Starter (USD 650):</strong> Hasta 4 pantallas y 1 flujo de usuario; sin autenticación; datos de prueba (plazo: 48 h).</li>
-                            <li class="mb-2"><strong>Standard (USD 950):</strong> Hasta 8 pantallas; autenticación; base de datos real; 1 integración; dominio propio (plazo: 72 h).</li>
-                            <li class="mb-2"><strong>Pro (USD 1.450):</strong> Hasta 14 pantallas; roles de usuario; pagos con Stripe; 2 integraciones; video de entrega (plazo: 5 días hábiles).</li>
+                            <li class="mb-2"><strong>Starter (USD 650):</strong> Hasta 4 pantallas y 1 flujo de usuario (plazo: 48 h).</li>
+                            <li class="mb-2"><strong>Standard (USD 950):</strong> Hasta 8 pantallas, autenticación y BD real (plazo: 72 h).</li>
+                            <li class="mb-2"><strong>Pro (USD 1.450):</strong> 14 pantallas, Stripe y integraciones avanzadas (plazo: 5 días).</li>
                         </ul>
-                        <p class="text-danger small mt-auto mb-0"><strong>Fuera de alcance:</strong> App móvil nativa, migración de datos, soporte continuo posterior, cambios tras wireframes (ronda extra: USD 290).</p>
                     </div>
                 </div>
 
-                <!-- Producto 2 -->
                 <div class="col-md-6">
                     <div class="card card-custom h-100 p-4">
                         <h3 class="h5 fw-bold text-white">2. Oferta de Recurrencia — "Autopilot de Ventas"</h3>
                         <p class="text-accent small">Automatización de flujos comerciales</p>
                         <ul class="list-unstyled text-secondary mb-3">
-                            <li class="mb-2"><strong>Implementación (USD 480):</strong> 3 escenarios (captura/enriquecimiento, respuesta inmediata y secuencia de seguimiento de 5 toques).</li>
-                            <li class="mb-2"><strong>Mantenimiento mensual (USD 180/mes):</strong> Monitoreo, corrección de errores, 1 mejora al mes y reporte.</li>
-                            <li class="mb-2"><strong>Escenario adicional:</strong> USD 140.</li>
+                            <li class="mb-2"><strong>Implementación (USD 480):</strong> Captura, IA y secuencias de seguimiento.</li>
+                            <li class="mb-2"><strong>Mantenimiento (USD 180/mes):</strong> Monitoreo constante y mejoras mensuales.</li>
                         </ul>
-                        <p class="text-success small mt-auto mb-0"><strong>Impacto:</strong> Ningún cliente potencial vuelve a quedarse sin respuesta en más de 5 minutos.</p>
-                    </div>
-                </div>
-
-                <!-- Producto 3 -->
-                <div class="col-md-6">
-                    <div class="card card-custom h-100 p-4">
-                        <h3 class="h5 fw-bold text-white">3. Oferta de Volumen — "Motor de Contenido"</h3>
-                        <p class="text-accent small">Presencia en video optimizada</p>
-                        <ul class="list-unstyled text-secondary mb-0">
-                            <li class="mb-2"><strong>Prueba de 8 clips (USD 190):</strong> Pago único como oferta de entrada.</li>
-                            <li class="mb-2"><strong>Plan mensual (USD 390/mes):</strong> 20 clips verticales + calendario editorial.</li>
-                            <li class="mb-2"><strong>Plan avanzado (USD 690/mes):</strong> 40 clips + miniaturas + reporte de rendimiento.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Producto 4 -->
-                <div class="col-md-6">
-                    <div class="card card-custom h-100 p-4">
-                        <h3 class="h5 fw-bold text-white">4. Oferta Puerta de Entrada</h3>
-                        <p class="text-accent small">Diagnóstico de Eficiencia Operativa</p>
-                        <p class="text-secondary mb-3">
-                            <strong>Inversión (USD 120):</strong> Sesión profunda de 90 minutos para auditar tus procesos manuales y entregarte un documento técnico de 3 páginas con las tres automatizaciones de mayor retorno.
-                        </p>
-                        <p class="text-accent small mt-auto mb-0">*Si decides implementar cualquier sistema con nosotros, estos USD 120 se descuentan por completo del proyecto.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Vitrina de Demos -->
-    <section>
-        <div class="container">
+        <!-- VISTA 3: DEMOS Y CARRUSEL -->
+        <div id="view-demos" class="content-view">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
-                    <h2 class="h3 fw-bold text-white mb-3">Vitrina de Modelos, Demos y Código</h2>
-                    <p class="text-secondary mb-4">Demostración de autoridad técnica real mediante prototipos interactivos en vivo (v0 / Vercel) y repositorios públicos (GitHub):</p>
+                    <h2 class="h3 fw-bold text-white mb-3">Vitrina Interactiva y Carrusel de Modelos</h2>
+                    <p class="text-secondary mb-4">Interactúa con nuestros componentes visuales y prototipos técnicos en funcionamiento:</p>
                     
-                    <div class="p-3 bg-dark border border-secondary rounded mb-3">
-                        <h5 class="text-white">Demo 1 (Dashboard / UI interactiva - v0)</h5>
-                        <p class="text-secondary small mb-2">Panel de control y gestión en tiempo real.</p>
-                        <a href="#" target="_blank" class="btn btn-sm btn-outline-light">Ver Prototipo en v0 ↗</a>
-                    </div>
-
-                    <div class="p-3 bg-dark border border-secondary rounded">
-                        <h5 class="text-white">Demo 2 (Backend / Automatización - GitHub)</h5>
-                        <p class="text-secondary small mb-2">Repositorio de código y sincronización de flujos.</p>
-                        <a href="#" target="_blank" class="btn btn-sm btn-outline-light">Ver Repositorio GitHub ↗</a>
+                    <!-- Bootstrap Carousel integrado -->
+                    <div id="carouselExampleIndicators" class="carousel slide mb-5 border border-secondary rounded p-3 bg-dark" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner text-center py-5">
+                            <div class="carousel-item active">
+                                <h4 class="text-white">Prototipo v0: Dashboard Inmobiliario</h4>
+                                <p class="text-secondary">Gestión de leads y analíticas en tiempo real.</p>
+                                <a href="#" class="btn btn-sm btn-accent mt-2">Explorar Interfaz ↗</a>
+                            </div>
+                            <div class="carousel-item">
+                                <h4 class="text-white">Automatización Backend (GitHub)</h4>
+                                <p class="text-secondary">Sincronización de webhooks y APIs comerciales.</p>
+                                <a href="https://github.com/" target="_blank" class="btn btn-sm btn-accent mt-2">Ver Repositorio ↗</a>
+                            </div>
+                            <div class="carousel-item">
+                                <h4 class="text-white">Motor de Contenido Masivo</h4>
+                                <p class="text-secondary">Generación automática de clips optimizados para conversión.</p>
+                                <a onclick="switchTab('contacto', event)" class="btn btn-sm btn-accent mt-2">Solicitar Muestra</a>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Cómo trabajamos y Condiciones -->
-    <section>
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <h3 class="h4 fw-bold text-white mb-3">Cómo trabajamos</h3>
-                    <ul class="list-unstyled text-secondary">
-                        <li class="mb-3"><strong>1. Claridad absoluta:</strong> Definimos alcance, precio fijo y fecha exacta de entrega antes de cruzar el primer dólar.</li>
-                        <li class="mb-3"><strong>2. Ejecución despiadada:</strong> Cero reuniones de relleno. Escribimos código y montamos arquitecturas.</li>
-                        <li><strong>3. Compromiso ágil:</strong> Facturación limpia y sin fricciones geográficas.</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h3 class="h4 fw-bold text-white mb-3">Condiciones Comerciales</h3>
-                    <ul class="list-unstyled text-secondary">
-                        <li class="mb-3"><strong>Método de pago:</strong> USDT (red TRC-20 / BEP-20), Wise o Payoneer.</li>
-                        <li><strong>Políticas de adelanto:</strong> Proyectos hasta USD 700 pagan 100% por adelantado; de USD 700 a 1.500 pagan 50% al firmar y 50% contra entrega.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto Directo -->
-    <section id="contacto" class="bg-dark text-white">
-        <div class="container py-4">
+        <!-- VISTA 4: MENSAJERÍA DIRECTA (Formulario al correo) -->
+        <div id="view-contacto" class="content-view">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="h3 fw-bold mb-3">Contacto Directo y Redes</h2>
-                    <p class="text-secondary mb-4">¿Tienes una idea trabada o un proceso manual que te está costando dinero? Escríbenos directamente y te responderemos con un diagnóstico técnico, no con un catálogo genérico.</p>
-                    
-                    <div class="d-flex flex-wrap justify-content-center gap-3">
-                        <a href="https://wa.me/584160436398" target="_blank" class="btn btn-accent">WhatsApp / Telegram</a>
-                        <a href="mailto:mauriciovilera@gmail.com" class="btn btn-outline-light">Correo Electrónico</a>
-                        <a href="https://www.linkedin.com/in/mauricio-gregorio-vilera-6839b860/" target="_blank" class="btn btn-outline-light">LinkedIn</a>
-                        <a href="https://github.com/" target="_blank" class="btn btn-outline-light">GitHub</a>
+                <div class="col-lg-7 mx-auto">
+                    <div class="p-4 bg-dark border border-secondary rounded">
+                        <h2 class="h3 fw-bold text-white mb-2">Mensajería Directa al Estudio</h2>
+                        <p class="text-secondary mb-4">¿Tienes una idea trabada o un proceso manual que te quita dinero? Escríbenos y te responderemos con un diagnóstico técnico directo a <strong>mauriciovilera@gmail.com</strong>.</p>
+                        
+                        <!-- Formulario conectado a Formspree (reemplaza YOUR_FORM_ID con tu endpoint o usa mailto directo) -->
+                        <form action="https://formspree.io/f/mauriciovilera@gmail.com" method="POST">
+                            <div class="mb-3">
+                                <label for="name" class="form-label text-secondary">Tu Nombre o Empresa</label>
+                                <input type="text" class="form-control bg-black text-white border-secondary" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label text-secondary">Correo Electrónico de Contacto</label>
+                                <input type="email" class="form-control bg-black text-white border-secondary" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label text-secondary">Describe brevemente tu proyecto o problema</label>
+                                <textarea class="form-control bg-black text-white border-secondary" id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-accent w-100 py-2">Enviar Diagnóstico Directo</button>
+                        </form>
+
+                        <div class="text-center mt-4 border-top border-secondary pt-3">
+                            <p class="text-secondary small mb-2">O comunícate de forma inmediata vía:</p>
+                            <a href="https://wa.me/584160436398" target="_blank" class="text-info text-decoration-none me-3">WhatsApp: +584160436398</a>
+                            <a href="https://www.linkedin.com/in/mauricio-gregorio-vilera-6839b860/" target="_blank" class="text-info text-decoration-none">LinkedIn</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+
+    </main>
+
+    <!-- Script de navegación dinámica SPA (Recarga únicamente el centro) -->
+    <script>
+        function switchTab(tabId, event) {
+            if (event) event.preventDefault();
+            
+            // Ocultar todas las vistas
+            const views = document.querySelectorAll('.content-view');
+            views.forEach(view => {
+                view.classList.remove('active');
+            });
+
+            // Mostrar la vista seleccionada
+            const targetView = document.getElementById('view-' + tabId);
+            if (targetView) {
+                targetView.classList.add('active');
+            }
+
+            // Actualizar clases activas en el menú superior
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            if (event && event.target && event.target.classList.contains('nav-link')) {
+                event.target.classList.add('active');
+            }
+
+            // Desplazar suavemente arriba al cambiar de pestaña
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

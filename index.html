@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapidlead | Ingeniería y Automatización sin Burocracia</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .hero-section {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+            border-bottom: 1px solid #30363d;
+        }
+        .card-custom {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+        }
+        .card-custom:hover {
+            border-color: #58a6ff;
+            transform: translateY(-2px);
+        }
+        .text-accent {
+            color: #58a6ff;
+        }
+        .btn-accent {
+            background-color: #238636;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .btn-accent:hover {
+            background-color: #2ea043;
+            color: #ffffff;
+        }
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #30363d;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar / Logo -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">
+                <!-- Inserta tu logo corporativo aquí si lo deseas -->
+                ⚡ RAPID<span class="text-accent">LEAD</span>
+            </a>
+            <div class="ms-auto">
+                <a href="#contacto" class="btn btn-sm btn-accent">Contacto Directo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center text-md-start">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold text-white mb-3">Ingeniería y Automatización sin Burocracia</h1>
+                    <p class="lead text-secondary mb-4">
+                        Ayudamos a fundadores, startups y empresas tradicionales a lanzar MVPs funcionales, automatizados y validados en el mercado en tiempo récord (72 horas). Sin rodeos ni agencias tradicionales: código real, funcionando.
+                    </p>
+                    <a href="#productos" class="btn btn-accent btn-lg">Ver Sistemas y Precios</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- El Verdadero Cuello de Botella -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="h3 fw-bold text-white mb-4">El verdadero cuello de botella de tu negocio</h2>
+                    <p class="fs-5 text-secondary">
+                        La mayoría de las startups y empresas tradicionales pierden entre tres y seis meses —y miles de dólares— esperando que una agencia tradicional mueva un dedo para validar una idea que se podía probar en días.
+                    </p>
+                    <p class="fs-5 text-secondary mb-0">
+                        Nosotros no vendemos horas de consultoría ni reuniones innecesarias. Construimos el núcleo que necesitas para dejar de perder leads, validar tu producto con usuarios reales y poner software real a funcionar en tiempo récord. Sin intermediarios y con plazos fijos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Empaquetados -->
+    <section id="productos">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-white">Nuestros Sistemas y Productos Empaquetados</h2>
+                <p class="text-secondary">Precios claros y fijos para cerrar ventas directas sin fricción.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Producto 1 -->
+                <div class="col-md-6">
+                    <div class="card card-custom h-100 p-4">
+                        <h3 class="h5 fw-bold text-white">1. Oferta Ancla — "Prototipo Vivo"</h3>
+                        <p class="text-accent small">MVP funcional en 72 horas</p>
+                        <ul class="list-unstyled text-secondary mb-3">
+                            <li class="mb-2"><strong>Starter (USD 650):</strong> Hasta 4 pantallas y 1 flujo de usuario; sin autenticación; datos de prueba (plazo: 48 h).</li>
+                            <li class="mb-2"><strong>Standard (USD 950):</strong> Hasta 8 pantallas; autenticación; base de datos real; 1 integración; dominio propio (plazo: 72 h).</li>
+                            <li class="mb-2"><strong>Pro (USD 1.450):</strong> Hasta 14 pantallas; roles de usuario; pagos con Stripe; 2 integraciones; video de entrega (plazo: 5 días hábiles).</li>
+                        </ul>
+                        <p class="text-danger small mt-auto mb-0"><strong>Fuera de alcance:</strong> App móvil nativa, migración de datos, soporte continuo posterior, cambios tras wireframes (ronda extra: USD 290).</p>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="col-md-6">
+                    <div class="card card-custom h-100 p-4">
+                        <h3 class="h5 fw-bold text-white">2. Oferta de Recurrencia — "Autopilot de Ventas"</h3>
+                        <p class="text-accent small">Automatización de flujos comerciales</p>
+                        <ul class="list-unstyled text-secondary mb-3">
+                            <li class="mb-2"><strong>Implementación (USD 480):</strong> 3 escenarios (captura/enriquecimiento, respuesta inmediata y secuencia de seguimiento de 5 toques).</li>
+                            <li class="mb-2"><strong>Mantenimiento mensual (USD 180/mes):</strong> Monitoreo, corrección de errores, 1 mejora al mes y reporte.</li>
+                            <li class="mb-2"><strong>Escenario adicional:</strong> USD 140.</li>
+                        </ul>
+                        <p class="text-success small mt-auto mb-0"><strong>Impacto:</strong> Ningún cliente potencial vuelve a quedarse sin respuesta en más de 5 minutos.</p>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="col-md-6">
+                    <div class="card card-custom h-100 p-4">
+                        <h3 class="h5 fw-bold text-white">3. Oferta de Volumen — "Motor de Contenido"</h3>
+                        <p class="text-accent small">Presencia en video optimizada</p>
+                        <ul class="list-unstyled text-secondary mb-0">
+                            <li class="mb-2"><strong>Prueba de 8 clips (USD 190):</strong> Pago único como oferta de entrada.</li>
+                            <li class="mb-2"><strong>Plan mensual (USD 390/mes):</strong> 20 clips verticales + calendario editorial.</li>
+                            <li class="mb-2"><strong>Plan avanzado (USD 690/mes):</strong> 40 clips + miniaturas + reporte de rendimiento.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="col-md-6">
+                    <div class="card card-custom h-100 p-4">
+                        <h3 class="h5 fw-bold text-white">4. Oferta Puerta de Entrada</h3>
+                        <p class="text-accent small">Diagnóstico de Eficiencia Operativa</p>
+                        <p class="text-secondary mb-3">
+                            <strong>Inversión (USD 120):</strong> Sesión profunda de 90 minutos para auditar tus procesos manuales y entregarte un documento técnico de 3 páginas con las tres automatizaciones de mayor retorno.
+                        </p>
+                        <p class="text-accent small mt-auto mb-0">*Si decides implementar cualquier sistema con nosotros, estos USD 120 se descuentan por completo del proyecto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vitrina de Demos -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="h3 fw-bold text-white mb-3">Vitrina de Modelos, Demos y Código</h2>
+                    <p class="text-secondary mb-4">Demostración de autoridad técnica real mediante prototipos interactivos en vivo (v0 / Vercel) y repositorios públicos (GitHub):</p>
+                    
+                    <div class="p-3 bg-dark border border-secondary rounded mb-3">
+                        <h5 class="text-white">Demo 1 (Dashboard / UI interactiva - v0)</h5>
+                        <p class="text-secondary small mb-2">Panel de control y gestión en tiempo real.</p>
+                        <a href="#" target="_blank" class="btn btn-sm btn-outline-light">Ver Prototipo en v0 ↗</a>
+                    </div>
+
+                    <div class="p-3 bg-dark border border-secondary rounded">
+                        <h5 class="text-white">Demo 2 (Backend / Automatización - GitHub)</h5>
+                        <p class="text-secondary small mb-2">Repositorio de código y sincronización de flujos.</p>
+                        <a href="#" target="_blank" class="btn btn-sm btn-outline-light">Ver Repositorio GitHub ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo trabajamos y Condiciones -->
+    <section>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h3 class="h4 fw-bold text-white mb-3">Cómo trabajamos</h3>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-3"><strong>1. Claridad absoluta:</strong> Definimos alcance, precio fijo y fecha exacta de entrega antes de cruzar el primer dólar.</li>
+                        <li class="mb-3"><strong>2. Ejecución despiadada:</strong> Cero reuniones de relleno. Escribimos código y montamos arquitecturas.</li>
+                        <li><strong>3. Compromiso ágil:</strong> Facturación limpia y sin fricciones geográficas.</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="h4 fw-bold text-white mb-3">Condiciones Comerciales</h3>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-3"><strong>Método de pago:</strong> USDT (red TRC-20 / BEP-20), Wise o Payoneer.</li>
+                        <li><strong>Políticas de adelanto:</strong> Proyectos hasta USD 700 pagan 100% por adelantado; de USD 700 a 1.500 pagan 50% al firmar y 50% contra entrega.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Directo -->
+    <section id="contacto" class="bg-dark text-white">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="h3 fw-bold mb-3">Contacto Directo y Redes</h2>
+                    <p class="text-secondary mb-4">¿Tienes una idea trabada o un proceso manual que te está costando dinero? Escríbenos directamente y te responderemos con un diagnóstico técnico, no con un catálogo genérico.</p>
+                    
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="https://wa.me/584160436398" target="_blank" class="btn btn-accent">WhatsApp / Telegram</a>
+                        <a href="mailto:mauriciovilera@gmail.com" class="btn btn-outline-light">Correo Electrónico</a>
+                        <a href="https://www.linkedin.com/in/mauricio-gregorio-vilera-6839b860/" target="_blank" class="btn btn-outline-light">LinkedIn</a>
+                        <a href="https://github.com/" target="_blank" class="btn btn-outline-light">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

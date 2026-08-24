@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapidlead | Ingeniería y Automatización sin Burocracia</title>
+    <title>Rapidlead | MVPs y Automatización sin Burocracia</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -12,9 +12,9 @@
             color: #c9d1d9;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
-        .navbar-brand {
-            font-weight: 700;
-            letter-spacing: -0.5px;
+        .navbar-brand img {
+            max-height: 40px;
+            width: auto;
         }
         .hero-section {
             padding: 4rem 0;
@@ -43,7 +43,6 @@
             background-color: #2ea043;
             color: #ffffff;
         }
-        /* Clases para controlar la vista dinámica de las pestañas */
         .content-view {
             display: none;
             padding: 3rem 0;
@@ -59,39 +58,38 @@
         .nav-link.active, .nav-link:hover {
             color: #58a6ff !important;
         }
+        .table-dark-custom {
+            background-color: #161b22;
+            color: #c9d1d9;
+            border-color: #30363d;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar Superior con Pestañas de Navegación -->
+    <!-- Navbar Superior con Pestañas de Navegación y Logotipo -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
         <div class="container">
-            <a class="navbar-brand text-white" href="#" onclick="switchTab('inicio', event)">
-                ⚡ RAPID<span class="text-accent">LEAD</span>
+            <a class="navbar-brand text-white d-flex align-items-center gap-2" href="#" onclick="switchTab('inicio', event)">
+                <!-- Aquí puedes colocar la ruta de tu logo alojado o en base64 -->
+                <span>⚡ RAPID<span class="text-accent">LEAD</span></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center gap-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" onclick="switchTab('inicio', event)">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="switchTab('productos', event)">Sistemas y Precios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="switchTab('demos', event)">Demos y Carrusel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="switchTab('contacto', event)">Mensajería Directa</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" onclick="switchTab('inicio', event)">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="switchTab('productos', event)">Sistemas y Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="switchTab('pagos', event)">Medios de Pago</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="switchTab('demos', event)">Demos y Carrusel</a></li>
+                    <li class="nav-item"><a class="nav-link" onclick="switchTab('contacto', event)">Mensajería Directa</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- CONTENEDOR CENTRAL DINÁMICO (Se recarga al hacer clic arriba sin refrescar la página) -->
+    <!-- CONTENEDOR CENTRAL DINÁMICO (SPA) -->
     <main class="container my-4">
 
         <!-- VISTA 1: INICIO -->
@@ -99,67 +97,174 @@
             <header class="hero-section text-center text-md-start rounded p-5 mb-4 bg-dark border border-secondary">
                 <div class="row align-items-center">
                     <div class="col-lg-8">
-                        <h1 class="display-4 fw-bold text-white mb-3">Ingeniería y Automatización sin Burocracia</h1>
+                        <span class="badge bg-secondary mb-3">Velocidad: 72 horas (según plan) | Desde USD 650</span>
+                        <h1 class="display-4 fw-bold text-white mb-3">MVPs y automatización que generan ventas (sin burocracia)</h1>
                         <p class="lead text-secondary mb-4">
-                            Ayudamos a fundadores, startups y empresas tradicionales a lanzar MVPs funcionales, automatizados y validados en tiempo récord (72 horas). Sin rodeos ni agencias tradicionales: código real, funcionando.
+                            Para startups y negocios tradicionales: construimos producto funcional + automatizamos el follow‑up para que no se pierdan leads. Entregamos en días, no en meses. Precio fijo. Alcance cerrado. Código real.
                         </p>
-                        <button class="btn btn-accent btn-lg" onclick="switchTab('productos', event)">Ver Sistemas y Precios</button>
+                        <button class="btn btn-accent btn-lg me-2" onclick="switchTab('productos', event)">Ver Sistemas y Precios</button>
+                        <a href="https://wa.me/584160436398" target="_blank" class="btn btn-outline-light btn-lg">WhatsApp para agendar</a>
                     </div>
                 </div>
             </header>
 
-            <div class="p-4 bg-dark border border-secondary rounded">
-                <h2 class="h3 fw-bold text-white mb-3">El verdadero cuello de botella de tu negocio</h2>
-                <p class="fs-5 text-secondary">
-                    La mayoría de las startups y empresas tradicionales pierden entre tres y seis meses —y miles de dólares— esperando que una agencia tradicional mueva un dedo para validar una idea que se podía probar en días.
-                </p>
-                <p class="fs-5 text-secondary mb-0">
-                    Nosotros no vendemos horas de consultoría ni reuniones innecesarias. Construimos el núcleo que necesitas para dejar de perder leads y poner software real a funcionar en tiempo récord.
-                </p>
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="p-4 bg-dark border border-secondary rounded h-100">
+                        <h3 class="h4 fw-bold text-white mb-3">El problema (y por qué te está costando dinero)</h3>
+                        <p class="text-secondary">Mientras otros venden workshops, reuniones y “roadmaps”, tú sigues perdiendo:</p>
+                        <ul class="text-secondary">
+                            <li>Leads que no respondes a tiempo</li>
+                            <li>Oportunidades que se enfrían</li>
+                            <li>Meses de espera antes de validar si el mercado paga</li>
+                        </ul>
+                        <p class="text-accent fw-bold mb-0">Nosotros ejecutamos. Rápido y con estándares premium.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-dark border border-secondary rounded h-100">
+                        <h3 class="h4 fw-bold text-white mb-3">Lo que entregamos (sin humo)</h3>
+                        <ul class="text-secondary mb-0">
+                            <li>Producto funcional (frontend + backend) listo para operar</li>
+                            <li>Base de datos real (no maquetas)</li>
+                            <li>Automatizaciones para capturar, responder y dar seguimiento</li>
+                            <li>Integraciones (CRM, WhatsApp, email, pagos, Notion/Airtable, etc.)</li>
+                            <li>Deploy + dominio (según plan) + Documentación y handoff</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 bg-secondary bg-opacity-10 border border-secondary rounded text-center">
+                <p class="text-white mb-0">✅ Si quieres “bonito”, también. Pero primero: que funcione, que mida, y que venda.</p>
             </div>
         </div>
 
         <!-- VISTA 2: PRODUCTOS Y PRECIOS -->
         <div id="view-productos" class="content-view">
             <div class="text-center mb-5">
-                <h2 class="fw-bold text-white">Nuestros Sistemas y Productos Empaquetados</h2>
-                <p class="text-secondary">Precios claros y fijos para cerrar ventas directas sin fricción.</p>
+                <h2 class="fw-bold text-white">Productos Empaquetados</h2>
+                <p class="text-secondary">Claros, comparables, sin “depende”.</p>
             </div>
 
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card card-custom h-100 p-4">
-                        <h3 class="h5 fw-bold text-white">1. Oferta Ancla — "Prototipo Vivo"</h3>
-                        <p class="text-accent small">MVP funcional en 72 horas</p>
-                        <ul class="list-unstyled text-secondary mb-3">
-                            <li class="mb-2"><strong>Starter (USD 650):</strong> Hasta 4 pantallas y 1 flujo de usuario (plazo: 48 h).</li>
-                            <li class="mb-2"><strong>Standard (USD 950):</strong> Hasta 8 pantallas, autenticación y BD real (plazo: 72 h).</li>
-                            <li class="mb-2"><strong>Pro (USD 1.450):</strong> 14 pantallas, Stripe y integraciones avanzadas (plazo: 5 días).</li>
-                        </ul>
-                    </div>
+            <!-- 1) Prototipo Vivo -->
+            <div class="card card-custom p-4 mb-4">
+                <h3 class="h5 fw-bold text-white mb-2">1) Prototipo Vivo — MVP listo para validar (rápido)</h3>
+                <div class="table-responsive mt-3">
+                    <table class="table table-dark table-striped table-bordered table-dark-custom">
+                        <thead>
+                            <tr>
+                                <th>Plan</th>
+                                <th>Inversión</th>
+                                <th>Para quién</th>
+                                <th>Incluye</th>
+                                <th>Plazo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Starter</td>
+                                <td><strong>USD 650</strong></td>
+                                <td>Validación express</td>
+                                <td>Hasta 4 pantallas, 1 flujo clave, sin auth, datos de prueba</td>
+                                <td>48 h</td>
+                            </tr>
+                            <tr>
+                                <td>Standard</td>
+                                <td><strong>USD 950</strong></td>
+                                <td>MVP en producción</td>
+                                <td>Hasta 8 pantallas, auth, DB real, 1 integración, dominio propio</td>
+                                <td>72 h</td>
+                            </tr>
+                            <tr>
+                                <td>Pro</td>
+                                <td><strong>USD 1.450</strong></td>
+                                <td>MVP + monetización</td>
+                                <td>Hasta 14 pantallas, 3 roles, Stripe, 2 integraciones, video de entrega</td>
+                                <td>5 días hábiles</td>
+                            </tr>
+                            <tr>
+                                <td>TotTotal</td>
+                                <td><strong>USD 5.000</strong></td>
+                                <td>Escala avanzada</td>
+                                <td>Hasta 25 pantallas, 6 roles, Stripe, 2 integraciones, video de entrega</td>
+                                <td>10 días hábiles</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+                <p class="text-danger small mt-2"><strong>Fuera de alcance (por defecto):</strong> app móvil nativa, migración de datos existentes, soporte continuo posterior, cambios de alcance tras wireframes. Ronda extra de cambios: <strong>USD 290</strong>.</p>
+                <div class="p-2 bg-black border border-secondary rounded text-secondary small">
+                    🧾 <strong>Regla simple:</strong> si no está en el alcance, no se “cuelan” extras. Si lo quieres, se cotiza y se agenda.
+                </div>
+            </div>
 
-                <div class="col-md-6">
-                    <div class="card card-custom h-100 p-4">
-                        <h3 class="h5 fw-bold text-white">2. Oferta de Recurrencia — "Autopilot de Ventas"</h3>
-                        <p class="text-accent small">Automatización de flujos comerciales</p>
-                        <ul class="list-unstyled text-secondary mb-3">
-                            <li class="mb-2"><strong>Implementación (USD 480):</strong> Captura, IA y secuencias de seguimiento.</li>
-                            <li class="mb-2"><strong>Mantenimiento (USD 180/mes):</strong> Monitoreo constante y mejoras mensuales.</li>
+            <!-- 2) Autopilot de Ventas -->
+            <div class="card card-custom p-4 mb-4">
+                <h3 class="h5 fw-bold text-white mb-2">2) Autopilot de Ventas — automatización que responde y vende</h3>
+                <ul class="text-secondary">
+                    <li><strong>Implementación (USD 480):</strong> 3 escenarios (captura/enriquecimiento, respuesta inmediata, seguimiento de 5 toques).</li>
+                    <li><strong>Mantenimiento (USD 180/mes):</strong> monitoreo, fixes, 1 mejora/mes + reporte.</li>
+                    <li><strong>Escenario adicional:</strong> USD 140.</li>
+                </ul>
+            </div>
+
+            <!-- 3) Motor de Contenido -->
+            <div class="card card-custom p-4 mb-4">
+                <h3 class="h5 fw-bold text-white mb-2">3) Motor de Contenido — volumen con sistema</h3>
+                <ul class="text-secondary mb-0">
+                    <li><strong>Prueba (USD 190):</strong> 8 clips (pago único).</li>
+                    <li><strong>Plan mensual (USD 390/mes):</strong> 20 clips + calendario editorial.</li>
+                    <li><strong>Plan avanzado (USD 690/mes):</strong> 40 clips + miniaturas + reporte.</li>
+                    <li><strong>Plan Definitivo (USD 780/mes):</strong> 70 clips + miniaturas + reporte + seguridad lógica.</li>
+                </ul>
+            </div>
+
+            <!-- 4) Diagnóstico -->
+            <div class="card card-custom p-4">
+                <h3 class="h5 fw-bold text-white mb-2">4) Diagnóstico de Eficiencia Operativa — Puerta de entrada (ROI directo)</h3>
+                <p class="text-secondary">Sesión de 90 min para mapear cuellos de botella y procesos manuales. Entregable: documento de 3 páginas con las 3 automatizaciones de mayor retorno.</p>
+                <p class="text-accent mb-0"><strong>Verificación:</strong> Gratuita | <strong>Informe incluido:</strong> USD 90 (Se acredita al proyecto si implementas con nosotros).</p>
+            </div>
+        </div>
+
+        <!-- VISTA 3: MEDIOS DE PAGO -->
+        <div id="view-pagos" class="content-view">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="p-4 bg-dark border border-secondary rounded">
+                        <h2 class="h3 fw-bold text-white mb-3">Medios y Formas de Pago</h2>
+                        <p class="text-secondary mb-4">Trabajamos bajo esquemas rápidos, seguros y sin fricción internacionalmente:</p>
+                        
+                        <div class="list-group list-group-dark mb-4">
+                            <div class="list-group-item bg-black text-white border-secondary mb-2 rounded p-3">
+                                <h5 class="text-accent fw-bold mb-1">💎 USDT (Criptomonedas)</h5>
+                                <p class="text-secondary mb-0 small">Redes aceptadas: <strong>TRC-20 / BEP-20</strong>. Método principal, rápido y de comisión mínima global.</p>
+                            </div>
+                            <div class="list-group-item bg-black text-white border-secondary mb-2 rounded p-3">
+                                <h5 class="text-accent fw-bold mb-1">🌍 Wise / Payoneer</h5>
+                                <p class="text-secondary mb-0 small">Ideal para clientes corporativos de EE. UU., Europa y LatAm que prefieren transferencia bancaria digital.</p>
+                            </div>
+                        </div>
+
+                        <h4 class="h5 text-white mt-4 mb-2">Políticas de Anticipo</h4>
+                        <ul class="text-secondary small">
+                            <li class="mb-2"><strong>Proyectos hasta USD 700:</strong> 100% por adelantado al confirmar el alcance.</li>
+                            <li class="mb-2"><strong>Proyectos de USD 700 a USD 1.500:</strong> 50% al firmar / 50% contra entrega.</li>
+                            <li><strong>Retainers y Mantenimiento:</strong> Por adelantado el día 1 de cada mes.</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- VISTA 3: DEMOS Y CARRUSEL -->
+        <!-- VISTA 4: DEMOS Y CARRUSEL -->
         <div id="view-demos" class="content-view">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
                     <h2 class="h3 fw-bold text-white mb-3">Vitrina Interactiva y Carrusel de Modelos</h2>
-                    <p class="text-secondary mb-4">Interactúa con nuestros componentes visuales y prototipos técnicos en funcionamiento:</p>
+                    <p class="text-secondary mb-4">Demostración técnica de arquitecturas y componentes en vivo:</p>
                     
-                    <!-- Bootstrap Carousel integrado -->
                     <div id="carouselExampleIndicators" class="carousel slide mb-5 border border-secondary rounded p-3 bg-dark" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -168,19 +273,19 @@
                         </div>
                         <div class="carousel-inner text-center py-5">
                             <div class="carousel-item active">
-                                <h4 class="text-white">Prototipo v0: Dashboard Inmobiliario</h4>
-                                <p class="text-secondary">Gestión de leads y analíticas en tiempo real.</p>
-                                <a href="#" class="btn btn-sm btn-accent mt-2">Explorar Interfaz ↗</a>
+                                <h4 class="text-white">Prototipo Vivo: App Inmobiliaria</h4>
+                                <p class="text-secondary">Gestión de leads y captación automatizada en tiempo récord.</p>
+                                <a href="#" class="btn btn-sm btn-accent mt-2">Ver Demo en vivo ↗</a>
                             </div>
                             <div class="carousel-item">
-                                <h4 class="text-white">Automatización Backend (GitHub)</h4>
-                                <p class="text-secondary">Sincronización de webhooks y APIs comerciales.</p>
-                                <a href="https://github.com/" target="_blank" class="btn btn-sm btn-accent mt-2">Ver Repositorio ↗</a>
+                                <h4 class="text-white">Autopilot: Make.com + IA Webhook</h4>
+                                <p class="text-secondary">Sincronización en menos de 60 segundos con respuesta inteligente.</p>
+                                <a href="https://github.com/mau189g" target="_blank" class="btn btn-sm btn-accent mt-2">Ver en GitHub ↗</a>
                             </div>
                             <div class="carousel-item">
-                                <h4 class="text-white">Motor de Contenido Masivo</h4>
-                                <p class="text-secondary">Generación automática de clips optimizados para conversión.</p>
-                                <a onclick="switchTab('contacto', event)" class="btn btn-sm btn-accent mt-2">Solicitar Muestra</a>
+                                <h4 class="text-white">Motor de Contenido Dinámico</h4>
+                                <p class="text-secondary">Producción masiva de clips cortos optimizados para conversión.</p>
+                                <a onclick="switchTab('contacto', event)" class="btn btn-sm btn-accent mt-2">Cotizar Sistema</a>
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -192,39 +297,78 @@
                             <span class="visually-hidden">Siguiente</span>
                         </button>
                     </div>
+
+                    <!-- Enfoque Técnico y Proceso -->
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-dark border border-secondary rounded h-100">
+                                <h4 class="h5 fw-bold text-white mb-3">Enfoque Técnico</h4>
+                                <ul class="text-secondary small mb-0">
+                                    <li><strong>Frontend:</strong> Next.js / React</li>
+                                    <li><strong>Backend:</strong> Node.js / Serverless</li>
+                                    <li><strong>DB:</strong> Postgres / SQLite</li>
+                                    <li><strong>Deploy:</strong> Vercel / Railway / Render</li>
+                                    <li><strong>Integraciones:</strong> Webhooks, Make/Zapier, Stripe, WhatsApp</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-dark border border-secondary rounded h-100">
+                                <h4 class="h5 fw-bold text-white mb-3">Proceso sin fricción</h4>
+                                <ol class="text-secondary small mb-0 ps-3">
+                                    <li><strong>WhatsApp (2 min):</strong> Qué vendes y cuál es el cuello de botella.</li>
+                                    <li><strong>Alcance cerrado:</strong> Pantallas, flujos y criterios de entrega.</li>
+                                    <li><strong>Construcción:</strong> Prototipo funcional + automatizaciones.</li>
+                                    <li><strong>Entrega:</strong> Deploy, accesos, documentación y handoff.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- VISTA 4: MENSAJERÍA DIRECTA (Formulario al correo) -->
+        <!-- VISTA 5: MENSAJERÍA DIRECTA Y FAQ -->
         <div id="view-contacto" class="content-view">
-            <div class="row">
-                <div class="col-lg-7 mx-auto">
-                    <div class="p-4 bg-dark border border-secondary rounded">
-                        <h2 class="h3 fw-bold text-white mb-2">Mensajería Directa al Estudio</h2>
-                        <p class="text-secondary mb-4">¿Tienes una idea trabada o un proceso manual que te quita dinero? Escríbenos y te responderemos con un diagnóstico técnico directo a <strong>mauriciovilera@gmail.com</strong>.</p>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="p-4 bg-dark border border-secondary rounded h-100">
+                        <h2 class="h3 fw-bold text-white mb-2">Contacto Directo</h2>
+                        <p class="text-secondary mb-4">Escríbenos directamente o agenda vía WhatsApp:</p>
                         
-                        <!-- Formulario conectado a Formspree (reemplaza YOUR_FORM_ID con tu endpoint o usa mailto directo) -->
                         <form action="https://formspree.io/f/mauriciovilera@gmail.com" method="POST">
                             <div class="mb-3">
-                                <label for="name" class="form-label text-secondary">Tu Nombre o Empresa</label>
-                                <input type="text" class="form-control bg-black text-white border-secondary" id="name" name="name" required>
+                                <label class="form-label text-secondary">Tu Nombre / Empresa</label>
+                                <input type="text" class="form-control bg-black text-white border-secondary" name="name" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label text-secondary">Correo Electrónico de Contacto</label>
-                                <input type="email" class="form-control bg-black text-white border-secondary" id="email" name="email" required>
+                                <label class="form-label text-secondary">Correo Electrónico</label>
+                                <input type="email" class="form-control bg-black text-white border-secondary" name="email" required>
                             </div>
                             <div class="mb-3">
-                                <label for="message" class="form-label text-secondary">Describe brevemente tu proyecto o problema</label>
-                                <textarea class="form-control bg-black text-white border-secondary" id="message" name="message" rows="4" required></textarea>
+                                <label class="form-label text-secondary">Cuéntanos tu proyecto o cuello de botella</label>
+                                <textarea class="form-control bg-black text-white border-secondary" name="message" rows="4" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-accent w-100 py-2">Enviar Diagnóstico Directo</button>
                         </form>
 
-                        <div class="text-center mt-4 border-top border-secondary pt-3">
-                            <p class="text-secondary small mb-2">O comunícate de forma inmediata vía:</p>
-                            <a href="https://wa.me/584160436398" target="_blank" class="text-info text-decoration-none me-3">WhatsApp: +584160436398</a>
-                            <a href="https://www.linkedin.com/in/mauricio-gregorio-vilera-6839b860/" target="_blank" class="text-info text-decoration-none">LinkedIn</a>
+                        <div class="mt-4 pt-3 border-top border-secondary text-secondary small">
+                            <p class="mb-1">📱 WhatsApp: <a href="https://wa.me/584160436398" target="_blank" class="text-info">+584160436398</a></p>
+                            <p class="mb-1">📧 Email: <a href="mailto:mauriciovilera@gmail.com" class="text-info">mauriciovilera@gmail.com</a></p>
+                            <p class="mb-1">💼 LinkedIn: <a href="https://www.linkedin.com/in/mauricio-gregorio-vilera-6839b860/" target="_blank" class="text-info">Ver Perfil</a></p>
+                            <p class="mb-0">🐙 GitHub: <a href="https://github.com/mau189g" target="_blank" class="text-info">mau189g</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="p-4 bg-dark border border-secondary rounded h-100">
+                        <h3 class="h4 fw-bold text-white mb-3">FAQ (Respuestas Rápidas)</h3>
+                        <div class="text-secondary small">
+                            <p class="mb-2"><strong>¿Qué necesito para empezar?</strong><br>Una frase con qué vendes, a quién, cómo capturas leads hoy y qué herramientas usas.</p>
+                            <p class="mb-2"><strong>¿Qué pasa si mi idea cambia a mitad?</strong><br>Se mantiene el alcance acordado. Cambios grandes se cotizan como ronda extra (USD 290) o ajuste de plan.</p>
+                            <p class="mb-2"><strong>¿Incluye soporte?</strong><br>Por defecto es entrega + handoff. Si quieres soporte continuo, se maneja con Mantenimiento (USD 180/mes).</p>
+                            <p class="mb-0"><strong>¿Trabajas con empresas tradicionales (no tech)?</strong><br>Sí. De hecho ahí está el mayor ROI: menos tareas manuales y respuesta inmediata.</p>
                         </div>
                     </div>
                 </div>
@@ -233,38 +377,20 @@
 
     </main>
 
-    <!-- Script de navegación dinámica SPA (Recarga únicamente el centro) -->
+    <!-- Script de navegación SPA -->
     <script>
         function switchTab(tabId, event) {
             if (event) event.preventDefault();
-            
-            // Ocultar todas las vistas
-            const views = document.querySelectorAll('.content-view');
-            views.forEach(view => {
-                view.classList.remove('active');
-            });
-
-            // Mostrar la vista seleccionada
-            const targetView = document.getElementById('view-' + tabId);
-            if (targetView) {
-                targetView.classList.add('active');
-            }
-
-            // Actualizar clases activas en el menú superior
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
+            document.querySelectorAll('.content-view').forEach(v => v.classList.remove('active'));
+            const target = document.getElementById('view-' + tabId);
+            if (target) target.classList.add('active');
+            document.querySelectorAll('.navbar-nav .nav-link').forEach(l => l.classList.remove('active'));
             if (event && event.target && event.target.classList.contains('nav-link')) {
                 event.target.classList.add('active');
             }
-
-            // Desplazar suavemente arriba al cambiar de pestaña
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-
-    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
